@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saint Donuts & Caffe</title>
 
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 <style>
 * {
     margin: 0;
@@ -14,157 +17,152 @@
 }
 
 body {
-    background: radial-gradient(circle at top, #111 0%, #050505 100%);
+    background: linear-gradient(180deg, #0a0a0a, #050505);
     color: #fff;
-    overflow-x: hidden;
 }
 
+/* CONTAINER */
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
 }
 
 /* HEADER */
 header {
-    padding: 80px 0 40px;
     text-align: center;
-    animation: fadeIn 1s ease;
+    padding: 80px 0 40px;
 }
 
 header h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     letter-spacing: 2px;
-    font-weight: 600;
 }
 
 header p {
-    margin-top: 10px;
     color: #888;
-    font-size: 0.95rem;
+    margin-top: 10px;
 }
 
-/* GLASS */
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 18px;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 35px;
-    margin-top: 40px;
-    transition: 0.3s ease;
-}
-
-.glass:hover {
-    background: rgba(255, 255, 255, 0.07);
-}
-
-/* ABOUT */
-.about h2 {
-    margin-bottom: 15px;
-}
-
-.about p {
-    color: #bbb;
-    line-height: 1.7;
-}
-
-/* MENU */
+/* MENU GRID */
 .menu {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .menu h2 {
-    margin-bottom: 25px;
-    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
-.menu-grid {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
-.item {
-    padding: 22px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: 0.25s ease;
+/* CARD */
+.card {
     position: relative;
+    border-radius: 18px;
     overflow: hidden;
-}
-
-.item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
-    opacity: 0;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     transition: 0.3s;
 }
 
-.item:hover::before {
-    opacity: 1;
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
 }
 
-.item:hover {
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.08);
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
+/* CONTENT */
+.card-content {
+    padding: 20px;
 }
 
-.item span {
-    color: #999;
+.card-content h3 {
+    margin-bottom: 5px;
+}
+
+.card-content p {
     font-size: 0.9rem;
+    color: #aaa;
 }
 
-/* CTA */
+.price {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* BUTTON */
 .cta {
     text-align: center;
-    margin: 80px 0;
+    margin: 70px 0;
 }
 
 .cta button {
-    padding: 18px 36px;
-    font-size: 1rem;
+    padding: 18px 40px;
     border-radius: 999px;
     border: none;
+    font-weight: bold;
     cursor: pointer;
-    font-weight: 600;
-    background: linear-gradient(135deg, #ffffff, #dcdcdc);
+    background: #fff;
     color: #000;
-    transition: 0.25s ease;
-    box-shadow: 0 0 0 rgba(255,255,255,0);
+    transition: 0.3s;
 }
 
 .cta button:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 25px rgba(255,255,255,0.25);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+    transform: scale(1.07);
 }
 
-/* FOOTER */
-footer {
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: rgba(20,20,20,0.95);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
     text-align: center;
-    padding: 30px 0 50px;
-    color: #555;
-    font-size: 0.85rem;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+.modal h3 {
+    margin-bottom: 10px;
+}
+
+.modal p {
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.close {
+    margin-top: 15px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
     }
 }
 </style>
@@ -172,80 +170,109 @@ footer {
 
 <body>
 
-<div class="container">
+<div class="container animate__animated animate__fadeIn">
 
-    <header>
-        <h1>Saint Donuts & Caffe</h1>
-        <p>750 N Rush St, Gold Coast, Chicago, IL 60611-2536</p>
-    </header>
+<header>
+    <h1>Saint Donuts & Caffe</h1>
+    <p>750 N Rush St, Gold Coast, Chicago, IL 60611-2536</p>
+</header>
 
-    <section class="glass about">
-        <h2>Atmosphere</h2>
-        <p>
-            A modern, refined coffee spot in the heart of Chicago’s Gold Coast. 
-            Saint Donuts & Caffe blends clean design with a calm, premium ambiance — 
-            perfect for focused work, casual meetings, or simply enjoying high-quality coffee 
-            and freshly made donuts in a sophisticated environment.
-        </p>
-    </section>
+<section class="menu">
+    <h2>Menu</h2>
 
-    <section class="menu">
-        <h2>Menu Highlights</h2>
+    <div class="grid">
 
-        <div class="menu-grid">
-
-            <div class="item">
+        <div class="card" onclick="openModal('Glazed Donut', 'A classic airy donut with a delicate vanilla glaze.', '$3.95', 'Contains gluten, dairy')">
+            <img src="https://source.unsplash.com/featured/?glazed-donut">
+            <div class="card-content">
                 <h3>Glazed Donut</h3>
-                <span>Classic, soft, and perfectly sweet</span>
+                <p>Light, soft and iconic</p>
+                <div class="price">$3.95</div>
             </div>
-
-            <div class="item">
-                <h3>Chocolate Glazed</h3>
-                <span>Rich chocolate coating</span>
-            </div>
-
-            <div class="item">
-                <h3>Strawberry Glazed</h3>
-                <span>Sweet with a subtle tang</span>
-            </div>
-
-            <div class="item">
-                <h3>Blueberry Old Fashioned</h3>
-                <span>Dense texture with deep flavor</span>
-            </div>
-
-            <div class="item">
-                <h3>Latte</h3>
-                <span>Espresso with steamed milk</span>
-            </div>
-
-            <div class="item">
-                <h3>Matcha Latte</h3>
-                <span>Balanced energy and flavor</span>
-            </div>
-
-            <div class="item">
-                <h3>Cold Brew</h3>
-                <span>Smooth, bold, and refreshing</span>
-            </div>
-
-            <div class="item">
-                <h3>Breakfast Burrito</h3>
-                <span>Eggs, cheese, and protein</span>
-            </div>
-
         </div>
-    </section>
 
-    <div class="cta">
-        <button>Place Your Pickup Order</button>
+        <div class="card" onclick="openModal('Chocolate Donut', 'Rich Belgian chocolate coating with soft interior.', '$4.50', 'Contains gluten, dairy')">
+            <img src="https://source.unsplash.com/featured/?chocolate-donut">
+            <div class="card-content">
+                <h3>Chocolate Donut</h3>
+                <p>Deep chocolate flavor</p>
+                <div class="price">$4.50</div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('Strawberry Donut', 'Fresh strawberry glaze with subtle acidity.', '$4.25', 'Contains gluten')">
+            <img src="https://source.unsplash.com/featured/?strawberry-donut">
+            <div class="card-content">
+                <h3>Strawberry Donut</h3>
+                <p>Sweet & slightly tangy</p>
+                <div class="price">$4.25</div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('Latte', 'Premium espresso with silky steamed milk.', '$5.25', 'Contains dairy')">
+            <img src="https://source.unsplash.com/featured/?latte">
+            <div class="card-content">
+                <h3>Latte</h3>
+                <p>Smooth & balanced</p>
+                <div class="price">$5.25</div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('Cold Brew', 'Slow-steeped coffee with bold smoothness.', '$4.75', 'No allergens')">
+            <img src="https://source.unsplash.com/featured/?coldbrew">
+            <div class="card-content">
+                <h3>Cold Brew</h3>
+                <p>Strong & refreshing</p>
+                <div class="price">$4.75</div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('Breakfast Burrito', 'Eggs, cheese, sausage wrapped in a warm tortilla.', '$6.95', 'Contains eggs, dairy, gluten')">
+            <img src="https://source.unsplash.com/featured/?breakfast-burrito">
+            <div class="card-content">
+                <h3>Breakfast Burrito</h3>
+                <p>Hearty & satisfying</p>
+                <div class="price">$6.95</div>
+            </div>
+        </div>
+
     </div>
+</section>
 
-    <footer>
-        © 2026 Saint Donuts & Caffe
-    </footer>
+<div class="cta">
+    <button onclick="orderNow()">Order Online</button>
+</div>
 
 </div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content animate__animated animate__fadeInUp">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+        <p id="modal-price"></p>
+        <p id="modal-allergens"></p>
+        <div class="close" onclick="closeModal()">Close</div>
+    </div>
+</div>
+
+<script>
+function openModal(title, desc, price, allergens) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerText = desc;
+    document.getElementById('modal-price').innerText = price;
+    document.getElementById('modal-allergens').innerText = "Allergens: " + allergens;
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+function orderNow() {
+    alert("Opening ordering system...");
+}
+</script>
 
 </body>
 </html>
