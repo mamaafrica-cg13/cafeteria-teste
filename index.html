@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Donuts & Caffe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #111 0%, #050505 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    padding: 80px 0 40px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+header h1 {
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+header p {
+    margin-top: 10px;
+    color: #888;
+    font-size: 0.95rem;
+}
+
+/* GLASS */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 35px;
+    margin-top: 40px;
+    transition: 0.3s ease;
+}
+
+.glass:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* ABOUT */
+.about h2 {
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #bbb;
+    line-height: 1.7;
+}
+
+/* MENU */
+.menu {
+    margin-top: 60px;
+}
+
+.menu h2 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.item {
+    padding: 22px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.item:hover::before {
+    opacity: 1;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.08);
+}
+
+.item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.item span {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    margin: 80px 0;
+}
+
+.cta button {
+    padding: 18px 36px;
+    font-size: 1rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ffffff, #dcdcdc);
+    color: #000;
+    transition: 0.25s ease;
+    box-shadow: 0 0 0 rgba(255,255,255,0);
+}
+
+.cta button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(255,255,255,0.25);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px 0 50px;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Saint Donuts & Caffe</h1>
+        <p>750 N Rush St, Gold Coast, Chicago, IL 60611-2536</p>
+    </header>
+
+    <section class="glass about">
+        <h2>Atmosphere</h2>
+        <p>
+            A modern, refined coffee spot in the heart of Chicago’s Gold Coast. 
+            Saint Donuts & Caffe blends clean design with a calm, premium ambiance — 
+            perfect for focused work, casual meetings, or simply enjoying high-quality coffee 
+            and freshly made donuts in a sophisticated environment.
+        </p>
+    </section>
+
+    <section class="menu">
+        <h2>Menu Highlights</h2>
+
+        <div class="menu-grid">
+
+            <div class="item">
+                <h3>Glazed Donut</h3>
+                <span>Classic, soft, and perfectly sweet</span>
+            </div>
+
+            <div class="item">
+                <h3>Chocolate Glazed</h3>
+                <span>Rich chocolate coating</span>
+            </div>
+
+            <div class="item">
+                <h3>Strawberry Glazed</h3>
+                <span>Sweet with a subtle tang</span>
+            </div>
+
+            <div class="item">
+                <h3>Blueberry Old Fashioned</h3>
+                <span>Dense texture with deep flavor</span>
+            </div>
+
+            <div class="item">
+                <h3>Latte</h3>
+                <span>Espresso with steamed milk</span>
+            </div>
+
+            <div class="item">
+                <h3>Matcha Latte</h3>
+                <span>Balanced energy and flavor</span>
+            </div>
+
+            <div class="item">
+                <h3>Cold Brew</h3>
+                <span>Smooth, bold, and refreshing</span>
+            </div>
+
+            <div class="item">
+                <h3>Breakfast Burrito</h3>
+                <span>Eggs, cheese, and protein</span>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="cta">
+        <button>Place Your Pickup Order</button>
+    </div>
+
+    <footer>
+        © 2026 Saint Donuts & Caffe
+    </footer>
+
+</div>
+
+</body>
+</html>
